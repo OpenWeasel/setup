@@ -46,15 +46,9 @@ namespace openweasel
         {
             Form2 frm = new Form2();
             frm.Show();
-           
+            Visible = false;
         }
-        // Create Form2.
-        public class Form2 : Form
-        {
-            public Form2()
-            {
-                Text = "Form2";
-            }
-        }
+       
+        
     }
 }

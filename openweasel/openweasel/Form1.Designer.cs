@@ -78,6 +78,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OpenWeasel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OpenWeasel";
             this.Load += new System.EventHandler(this.OpenWeasel_Load);
             this.ResumeLayout(false);
