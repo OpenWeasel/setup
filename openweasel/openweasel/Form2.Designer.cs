@@ -33,8 +33,9 @@
             this.cancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.installowandvb = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.loadowintovb = new System.Windows.Forms.CheckBox();
+            this.extract = new System.Windows.Forms.CheckBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,9 +63,9 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(1, 36);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(477, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(477, 140);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -81,33 +82,42 @@
             this.installowandvb.UseVisualStyleBackColor = true;
             this.installowandvb.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox1
+            // loadowintovb
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(242, 273);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(219, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Load OpenWeasel into Oracle VirtualBox";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.loadowintovb.AutoSize = true;
+            this.loadowintovb.Location = new System.Drawing.Point(242, 273);
+            this.loadowintovb.Name = "loadowintovb";
+            this.loadowintovb.Size = new System.Drawing.Size(219, 17);
+            this.loadowintovb.TabIndex = 4;
+            this.loadowintovb.Text = "Load OpenWeasel into Oracle VirtualBox";
+            this.loadowintovb.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // extract
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(242, 243);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(163, 17);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Extract Virtual Machine Drive";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.extract.AutoSize = true;
+            this.extract.Location = new System.Drawing.Point(242, 243);
+            this.extract.Name = "extract";
+            this.extract.Size = new System.Drawing.Size(163, 17);
+            this.extract.TabIndex = 5;
+            this.extract.Text = "Extract Virtual Machine Drive";
+            this.extract.UseVisualStyleBackColor = true;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 173);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(453, 23);
+            this.progressBar1.TabIndex = 6;
+            this.progressBar1.Value = 50;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 378);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.extract);
+            this.Controls.Add(this.loadowintovb);
             this.Controls.Add(this.installowandvb);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cancel);
@@ -131,7 +141,8 @@
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox installowandvb;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox loadowintovb;
+        private System.Windows.Forms.CheckBox extract;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

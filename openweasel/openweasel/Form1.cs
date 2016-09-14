@@ -22,14 +22,10 @@ namespace openweasel
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-
+            button1.Enabled = true;
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -44,9 +40,14 @@ namespace openweasel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 frm = new Form2();
-            frm.Show();
-            Visible = false;
+            if (checkBox2.Checked == true)
+                {
+                Form2 frm = new Form2();
+                frm.Show();
+                Visible = false;
+            }
+            else
+            { button1.Enabled = false; }
         }
        
         
