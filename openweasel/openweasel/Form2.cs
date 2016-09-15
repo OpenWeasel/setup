@@ -30,6 +30,7 @@ namespace openweasel
 
         private void button2_Click(object sender, EventArgs e)
         {
+            backgroundWorker1.CancelAsync();
             Close();
         }
         // install openweasel and virtualbox check box
@@ -79,13 +80,9 @@ namespace openweasel
             if (switchnum == 1)
             {
                 //install openweasel and virtualbox
-                progressBar1.Value = 10;
-                install.Enabled = false;
-                processlabel.Text = "Extracting:";
-                //System.Threading.Thread.Sleep(5000);
-                Directory.CreateDirectory(@"c:\oweaselsetup");
-                ZipFile.ExtractToDirectory(@"ow.zip", @"c:\oweaselsetup");
-                progressBar1.Value = 20;
+                backgroundWorker1.RunWorkerAsync();
+
+
 
             }
            else
@@ -104,17 +101,61 @@ namespace openweasel
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            //int i;
+            backgroundWorker1.ReportProgress(20);
+            Directory.CreateDirectory(@"c:\oweaselsetup");
+            //should i chunk up extraction process?
+            ZipFile.ExtractToDirectory(@"ow.zip", @"c:\oweaselsetup");
 
+            /*
+            for (int i = 0; i <= 1; i++)
+            {
+                //CHECK FOR CANCELLATION FIRST
+                if (backgroundWorker1.CancellationPending)
+                {
+                    //CANCEL
+                    e.Cancel = true;
+                }
+                else
+                {
+                    //progressBar1.Value = 10;
+                    //install.Enabled = false;
+                    //processlabel.Text = "Extracting:";
+                    //System.Threading.Thread.Sleep(5000);
+                    Directory.CreateDirectory(@"c:\oweaselsetup");
+                    ZipFile.ExtractToDirectory(@"ow.zip", @"c:\oweaselsetup");
+                    //progressBar1.Value = 20;
+                    backgroundWorker1.ReportProgress(i);
+                }
+            }
+            */
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            if (e.Cancelled)
+            {
+                //display("You have Cancelled");
+                progressBar1.Value = 0;
+                //percentageLabel.Text = "0";
+            }
+            else
+            {
+                //display("Work completed successfully");
+            }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            progressBar1.Value = e.ProgressPercentage;
+            if (progressBar1.Value == 20)
+            {
+                processlabel.Text = "Extracting:";
+            }
+            else
+            {
 
+            }
         }
     }
 }
