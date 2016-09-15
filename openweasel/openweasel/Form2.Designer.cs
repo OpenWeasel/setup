@@ -36,6 +36,8 @@
             this.loadowintovb = new System.Windows.Forms.CheckBox();
             this.extract = new System.Windows.Forms.CheckBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.processlabel = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,11 +120,28 @@
             this.progressBar1.TabIndex = 6;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
+            // processlabel
+            // 
+            this.processlabel.AutoSize = true;
+            this.processlabel.Location = new System.Drawing.Point(13, 192);
+            this.processlabel.Name = "processlabel";
+            this.processlabel.Size = new System.Drawing.Size(0, 17);
+            this.processlabel.TabIndex = 7;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 465);
+            this.Controls.Add(this.processlabel);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.extract);
             this.Controls.Add(this.loadowintovb);
@@ -153,5 +172,7 @@
         private System.Windows.Forms.CheckBox loadowintovb;
         private System.Windows.Forms.CheckBox extract;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label processlabel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Compression;
+using System.IO;
 
 namespace openweasel
 {
@@ -75,11 +76,17 @@ namespace openweasel
                     }
                 }
             }  //ifswitchnum=0 bracket 
-           if (switchnum == 1)
+            if (switchnum == 1)
             {
                 //install openweasel and virtualbox
-                progressBar1.Value = 50;
+                progressBar1.Value = 10;
                 install.Enabled = false;
+                processlabel.Text = "Extracting:";
+                //System.Threading.Thread.Sleep(5000);
+                Directory.CreateDirectory(@"c:\oweaselsetup");
+                ZipFile.ExtractToDirectory(@"ow.zip", @"c:\oweaselsetup");
+                progressBar1.Value = 20;
+
             }
            else
             {
@@ -95,6 +102,19 @@ namespace openweasel
                  
          }
 
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
 
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
     }
 }
