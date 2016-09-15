@@ -42,17 +42,18 @@
             // install
             // 
             this.install.Location = new System.Drawing.Point(520, 422);
-            this.install.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.install.Margin = new System.Windows.Forms.Padding(4);
             this.install.Name = "install";
             this.install.Size = new System.Drawing.Size(100, 28);
             this.install.TabIndex = 0;
             this.install.Text = "Install";
             this.install.UseVisualStyleBackColor = true;
+            this.install.Click += new System.EventHandler(this.install_Click);
             // 
             // cancel
             // 
             this.cancel.Location = new System.Drawing.Point(16, 422);
-            this.cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancel.Margin = new System.Windows.Forms.Padding(4);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(100, 28);
             this.cancel.TabIndex = 1;
@@ -66,7 +67,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(-2, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(637, 172);
             this.pictureBox1.TabIndex = 2;
@@ -78,7 +79,7 @@
             this.installowandvb.Checked = true;
             this.installowandvb.CheckState = System.Windows.Forms.CheckState.Checked;
             this.installowandvb.Location = new System.Drawing.Point(323, 372);
-            this.installowandvb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.installowandvb.Margin = new System.Windows.Forms.Padding(4);
             this.installowandvb.Name = "installowandvb";
             this.installowandvb.Size = new System.Drawing.Size(293, 21);
             this.installowandvb.TabIndex = 3;
@@ -90,7 +91,7 @@
             // 
             this.loadowintovb.AutoSize = true;
             this.loadowintovb.Location = new System.Drawing.Point(323, 336);
-            this.loadowintovb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loadowintovb.Margin = new System.Windows.Forms.Padding(4);
             this.loadowintovb.Name = "loadowintovb";
             this.loadowintovb.Size = new System.Drawing.Size(288, 21);
             this.loadowintovb.TabIndex = 4;
@@ -101,7 +102,7 @@
             // 
             this.extract.AutoSize = true;
             this.extract.Location = new System.Drawing.Point(323, 299);
-            this.extract.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.extract.Margin = new System.Windows.Forms.Padding(4);
             this.extract.Name = "extract";
             this.extract.Size = new System.Drawing.Size(211, 21);
             this.extract.TabIndex = 5;
@@ -111,7 +112,7 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(16, 213);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(604, 28);
             this.progressBar1.TabIndex = 6;
@@ -130,7 +131,7 @@
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.install);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form2";
