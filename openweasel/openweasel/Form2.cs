@@ -116,6 +116,8 @@ namespace openweasel
             ZipFile.ExtractToDirectory(@"IceWeaselbat.zip", extractPath);
             backgroundWorker1.ReportProgress(40);
             ZipFile.ExtractToDirectory(@"iceweaselicon.zip", extractPath);
+            backgroundWorker1.ReportProgress(42);
+            ZipFile.ExtractToDirectory(@"install.zip", extractPath);
             backgroundWorker1.ReportProgress(45);
             ZipFile.ExtractToDirectory(@"installp2.zip", extractPath);
             backgroundWorker1.ReportProgress(50);
