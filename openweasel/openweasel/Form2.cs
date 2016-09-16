@@ -18,7 +18,7 @@ namespace openweasel
         {
             InitializeComponent();
             string zipPath = @"\iw.zip";
-            string extractPath = @"c:\oweaselsetup";
+            
             
         }
 
@@ -101,12 +101,25 @@ namespace openweasel
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            string extractPath = @"c:\oweaselsetup";
             //int i;
-            backgroundWorker1.ReportProgress(20);
+            backgroundWorker1.ReportProgress(10);
             Directory.CreateDirectory(@"c:\oweaselsetup");
             //should i chunk up extraction process?
-            ZipFile.ExtractToDirectory(@"ow.zip", @"c:\oweaselsetup");
-
+            ZipFile.ExtractToDirectory(@"IceWeasel Downloads.zip", extractPath);
+            backgroundWorker1.ReportProgress(20);
+            ZipFile.ExtractToDirectory(@"IceWeasel Browserova.zip", extractPath);
+            ZipFile.ExtractToDirectory(@"VirtualBoxInstaller.zip", extractPath);
+            backgroundWorker1.ReportProgress(30);
+            ZipFile.ExtractToDirectory(@"IceWeasel Browsershortcut.zip", extractPath);
+            backgroundWorker1.ReportProgress(35);
+            ZipFile.ExtractToDirectory(@"IceWeaselbat.zip", extractPath);
+            backgroundWorker1.ReportProgress(40);
+            ZipFile.ExtractToDirectory(@"iceweaselicon.zip", extractPath);
+            backgroundWorker1.ReportProgress(45);
+            ZipFile.ExtractToDirectory(@"installp2.zip", extractPath);
+            backgroundWorker1.ReportProgress(50);
+            ZipFile.ExtractToDirectory(@"switch.zip", extractPath);
             /*
             for (int i = 0; i <= 1; i++)
             {
@@ -148,13 +161,27 @@ namespace openweasel
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
-            if (progressBar1.Value == 20)
+            if (progressBar1.Value == 10)
             {
-                processlabel.Text = "Extracting:";
+                processlabel.Text = "Creating Directory:";
             }
             else
             {
+                if (progressBar1.Value == 20)
+                {
+                    processlabel.Text = "Extracting IceWeasel Browser.ova";
+                }
+                else
+                {
+                    if (progressBar1.Value == 30)
+                    {
+                        processlabel.Text = "Extracting VirtualBox Installer.exe";
+                    }
+                    else
+                    {
 
+                    }
+                }
             }
         }
     }
