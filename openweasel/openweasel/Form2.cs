@@ -109,6 +109,7 @@ namespace openweasel
             ZipFile.ExtractToDirectory(@"IceWeasel Downloads.zip", extractPath);
             backgroundWorker1.ReportProgress(20);
             ZipFile.ExtractToDirectory(@"IceWeasel Browserova.zip", extractPath);
+            backgroundWorker1.ReportProgress(25);
             ZipFile.ExtractToDirectory(@"VirtualBoxInstaller.zip", extractPath);
             backgroundWorker1.ReportProgress(30);
             ZipFile.ExtractToDirectory(@"IceWeasel Browsershortcut.zip", extractPath);
@@ -171,17 +172,55 @@ namespace openweasel
             {
                 if (progressBar1.Value == 20)
                 {
-                    processlabel.Text = "Extracting IceWeasel Browser.ova";
+                    processlabel.Text = "Extracting IceWeasel Browser.ova (this may take awhile):";
                 }
                 else
                 {
-                    if (progressBar1.Value == 30)
+                    if (progressBar1.Value == 25)
                     {
                         processlabel.Text = "Extracting VirtualBox Installer.exe";
                     }
                     else
                     {
-
+                        if (progressBar1.Value == 30)
+                        {
+                            processlabel.Text = "Extracting Icon File";
+                        }
+                        else
+                        {
+                            if (progressBar1.Value == 35)
+                            {
+                                processlabel.Text = "Extracting IceWeasel batch file";
+                            }
+                            else
+                            {
+                                if (progressBar1.Value == 40)
+                                {
+                                    processlabel.Text = "Extracting IceWeasel icon file";
+                                }
+                                else
+                                {
+                                    if (progressBar1.Value == 42)
+                                    {
+                                        processlabel.Text = "Extracting Install File";
+                                    }
+                                    else
+                                    {
+                                        if (progressBar1.Value == 45)
+                                        {
+                                            processlabel.Text = "Extracting Install File #2";
+                                        }
+                                        else
+                                        {
+                                            if (progressBar1.Value == 50)
+                                            {
+                                                processlabel.Text = "Extracting Switch";
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
