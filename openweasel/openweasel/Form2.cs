@@ -172,7 +172,7 @@ namespace openweasel
             {
                 if (progressBar1.Value == 20)
                 {
-                    processlabel.Text = "Extracting IceWeasel Browser.ova (this may take awhile):";
+                    processlabel.Text = "Extracting IceWeasel Browser.ova this may take awhile:";
                 }
                 else
                 {
