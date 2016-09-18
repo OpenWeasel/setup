@@ -216,6 +216,45 @@ namespace openweasel
                                             {
                                                 processlabel.Text = "Extracting Switch";
                                             }
+                                            else
+                                            {
+                                                if (progressBar1.Value == 60)
+                                                {
+                                                    processlabel.Text = "";
+                                                }
+                                                else
+                                                {
+                                                    if (progressBar1.Value == 70)
+                                                    {
+                                                        processlabel.Text = "";
+
+                                                    }
+                                                    else
+                                                    {
+                                                        if (progressBar1.Value == 80)
+                                                        {
+                                                            processlabel.Text = "";
+                                                        }
+                                                        else
+                                                        {
+                                                            if (progressBar1.Value == 90)
+                                                            {
+                                                                processlabel.Text = "";
+                                                          
+                                                            }
+                                                            else
+                                                            {
+                                                                if (progressBar1.Value == 100)
+                                                                    processlabel.Text = "Installation complete:";
+                                                                Form3 frm = new Form3();
+                                                                frm.Show();
+                                                                Visible = false;
+                                                            }
+
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
