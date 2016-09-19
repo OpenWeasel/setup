@@ -16,5 +16,15 @@ namespace openweasel
         {
             InitializeComponent();
         }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void yes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

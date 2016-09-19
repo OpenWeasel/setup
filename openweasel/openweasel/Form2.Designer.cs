@@ -43,10 +43,9 @@
             // 
             // install
             // 
-            this.install.Location = new System.Drawing.Point(520, 422);
-            this.install.Margin = new System.Windows.Forms.Padding(4);
+            this.install.Location = new System.Drawing.Point(390, 343);
             this.install.Name = "install";
-            this.install.Size = new System.Drawing.Size(100, 28);
+            this.install.Size = new System.Drawing.Size(75, 23);
             this.install.TabIndex = 0;
             this.install.Text = "Install";
             this.install.UseVisualStyleBackColor = true;
@@ -54,10 +53,9 @@
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(16, 422);
-            this.cancel.Margin = new System.Windows.Forms.Padding(4);
+            this.cancel.Location = new System.Drawing.Point(12, 343);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(100, 28);
+            this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 1;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -68,10 +66,9 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(637, 172);
+            this.pictureBox1.Size = new System.Drawing.Size(478, 140);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -80,10 +77,9 @@
             this.installowandvb.AutoSize = true;
             this.installowandvb.Checked = true;
             this.installowandvb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.installowandvb.Location = new System.Drawing.Point(323, 372);
-            this.installowandvb.Margin = new System.Windows.Forms.Padding(4);
+            this.installowandvb.Location = new System.Drawing.Point(242, 302);
             this.installowandvb.Name = "installowandvb";
-            this.installowandvb.Size = new System.Drawing.Size(293, 21);
+            this.installowandvb.Size = new System.Drawing.Size(223, 17);
             this.installowandvb.TabIndex = 3;
             this.installowandvb.Text = "Install OpenWeasel and Oracle VirtualBox";
             this.installowandvb.UseVisualStyleBackColor = true;
@@ -92,10 +88,9 @@
             // loadowintovb
             // 
             this.loadowintovb.AutoSize = true;
-            this.loadowintovb.Location = new System.Drawing.Point(323, 336);
-            this.loadowintovb.Margin = new System.Windows.Forms.Padding(4);
+            this.loadowintovb.Location = new System.Drawing.Point(242, 273);
             this.loadowintovb.Name = "loadowintovb";
-            this.loadowintovb.Size = new System.Drawing.Size(288, 21);
+            this.loadowintovb.Size = new System.Drawing.Size(219, 17);
             this.loadowintovb.TabIndex = 4;
             this.loadowintovb.Text = "Load OpenWeasel into Oracle VirtualBox";
             this.loadowintovb.UseVisualStyleBackColor = true;
@@ -103,29 +98,28 @@
             // extract
             // 
             this.extract.AutoSize = true;
-            this.extract.Location = new System.Drawing.Point(323, 299);
-            this.extract.Margin = new System.Windows.Forms.Padding(4);
+            this.extract.Location = new System.Drawing.Point(242, 243);
             this.extract.Name = "extract";
-            this.extract.Size = new System.Drawing.Size(211, 21);
+            this.extract.Size = new System.Drawing.Size(163, 17);
             this.extract.TabIndex = 5;
             this.extract.Text = "Extract Virtual Machine Drive";
             this.extract.UseVisualStyleBackColor = true;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(16, 213);
-            this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
+            this.progressBar1.Location = new System.Drawing.Point(12, 173);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(604, 28);
+            this.progressBar1.Size = new System.Drawing.Size(453, 23);
             this.progressBar1.TabIndex = 6;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // processlabel
             // 
             this.processlabel.AutoSize = true;
-            this.processlabel.Location = new System.Drawing.Point(13, 192);
+            this.processlabel.Location = new System.Drawing.Point(10, 156);
+            this.processlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.processlabel.Name = "processlabel";
-            this.processlabel.Size = new System.Drawing.Size(0, 17);
+            this.processlabel.Size = new System.Drawing.Size(0, 13);
             this.processlabel.TabIndex = 7;
             // 
             // backgroundWorker1
@@ -138,9 +132,9 @@
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 465);
+            this.ClientSize = new System.Drawing.Size(477, 378);
             this.Controls.Add(this.processlabel);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.extract);
@@ -150,7 +144,6 @@
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.install);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form2";
