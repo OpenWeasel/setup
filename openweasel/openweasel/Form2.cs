@@ -17,7 +17,7 @@ namespace openweasel
         public Form2()
         {
             InitializeComponent();
-            string zipPath = @"\iw.zip";
+            //string zipPath = @"\iw.zip";
             
             
         }
@@ -80,6 +80,7 @@ namespace openweasel
             if (switchnum == 1)
             {
                 //install openweasel and virtualbox
+                UseWaitCursor = true;
                 backgroundWorker1.RunWorkerAsync();
 
 
@@ -121,30 +122,33 @@ namespace openweasel
             ZipFile.ExtractToDirectory(@"install.zip", extractPath);
             backgroundWorker1.ReportProgress(45);
             ZipFile.ExtractToDirectory(@"installp2.zip", extractPath);
+            // testing change this report progress back to 50
             backgroundWorker1.ReportProgress(50);
             ZipFile.ExtractToDirectory(@"switch.zip", extractPath);
-            /*
-            for (int i = 0; i <= 1; i++)
-            {
-                //CHECK FOR CANCELLATION FIRST
-                if (backgroundWorker1.CancellationPending)
-                {
-                    //CANCEL
-                    e.Cancel = true;
-                }
-                else
-                {
-                    //progressBar1.Value = 10;
-                    //install.Enabled = false;
-                    //processlabel.Text = "Extracting:";
-                    //System.Threading.Thread.Sleep(5000);
-                    Directory.CreateDirectory(@"c:\oweaselsetup");
-                    ZipFile.ExtractToDirectory(@"ow.zip", @"c:\oweaselsetup");
-                    //progressBar1.Value = 20;
-                    backgroundWorker1.ReportProgress(i);
-                }
-            }
-            */
+            backgroundWorker1.ReportProgress(60);
+            //ZipFile.ExtractToDirectory(@"installtest.zip", extractPath);
+            //starts up install.bat
+            System.Diagnostics.Process install = new System.Diagnostics.Process();
+            install.StartInfo.WorkingDirectory = extractPath;
+            install.StartInfo.FileName = "install.bat";
+            install.Start();
+            //System.Diagnostics.Process.Start(@"c:\oweasel\installtest.bat");
+           // System.Diagnostics.Process.Start(@"c:\oweasel\install.bat");
+            backgroundWorker1.ReportProgress(70);
+            //starts installp2.bat process
+            System.Diagnostics.Process installp2 = new System.Diagnostics.Process();
+            installp2.StartInfo.WorkingDirectory = extractPath;
+            installp2.StartInfo.FileName = "installp2.bat";
+            installp2.Start();
+            //System.Diagnostics.Process.Start(@"c:\oweasel\installp2.bat");
+            backgroundWorker1.ReportProgress(80);
+            System.Diagnostics.Process switchbat = new System.Diagnostics.Process();
+            switchbat.StartInfo.WorkingDirectory = extractPath;
+            switchbat.StartInfo.FileName = "switch.bat";
+            //System.Diagnostics.Process.Start(@"c:\oweasel\switch.bat");
+            backgroundWorker1.ReportProgress(90);
+            backgroundWorker1.ReportProgress(100);
+
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -184,37 +188,37 @@ namespace openweasel
                     {
                         if (progressBar1.Value == 30)
                         {
-                            processlabel.Text = "Extracting Icon File";
+                            processlabel.Text = "Extracting Shortcut File:";
                         }
                         else
                         {
                             if (progressBar1.Value == 35)
                             {
-                                processlabel.Text = "Extracting IceWeasel batch file";
+                                processlabel.Text = "Extracting IceWeasel Batch File:";
                             }
                             else
                             {
                                 if (progressBar1.Value == 40)
                                 {
-                                    processlabel.Text = "Extracting IceWeasel icon file";
+                                    processlabel.Text = "Extracting IceWeasel Icon File:";
                                 }
                                 else
                                 {
                                     if (progressBar1.Value == 42)
                                     {
-                                        processlabel.Text = "Extracting Install File";
+                                        processlabel.Text = "Extracting Install File:";
                                     }
                                     else
                                     {
                                         if (progressBar1.Value == 45)
                                         {
-                                            processlabel.Text = "Extracting Install File #2";
+                                            processlabel.Text = "Extracting Install File #2:";
                                         }
                                         else
                                         {
                                             if (progressBar1.Value == 50)
                                             {
-                                                processlabel.Text = "Extracting Switch";
+                                                processlabel.Text = "Extracting Switch:";
                                             }
                                             else
                                             {
@@ -226,14 +230,14 @@ namespace openweasel
                                                 {
                                                     if (progressBar1.Value == 70)
                                                     {
-                                                        processlabel.Text = "";
+                                                        processlabel.Text = "Mounting IceWeasel:";
 
                                                     }
                                                     else
                                                     {
                                                         if (progressBar1.Value == 80)
                                                         {
-                                                            processlabel.Text = "";
+                                                            processlabel.Text = "Mounting IceWeasel:";
                                                         }
                                                         else
                                                         {

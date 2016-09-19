@@ -24,7 +24,11 @@ namespace openweasel
 
         private void yes_Click(object sender, EventArgs e)
         {
-
+            string extractPath = @"c:\oweaselsetup";
+            System.Diagnostics.Process ice = new System.Diagnostics.Process();
+            ice.StartInfo.FileName = "IceWeasel.bat";
+            ice.StartInfo.WorkingDirectory = extractPath;
+           // System.Diagnostics.Process.Start(@"c:\oweasel\IceWeasel.bat");
         }
     }
 }
