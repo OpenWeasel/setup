@@ -91,6 +91,8 @@ namespace openweasel
                 if (switchnum == 2)
                 {
                     //load openweasel into virtualbox
+                    //call backgroundWorker2 skips virtualbox extraction and install.bat goes straight to installp2.bat
+                    //after all extraction processes gets finished.
                 }
                 else
                 {
@@ -99,7 +101,7 @@ namespace openweasel
             }
                  
          }
-
+        //backgroundWorker1 gets ran if user choses to install IceWeasel and VirtualBox
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             string extractPath = @"c:\oweaselsetup";
@@ -224,7 +226,7 @@ namespace openweasel
                                             {
                                                 if (progressBar1.Value == 60)
                                                 {
-                                                    processlabel.Text = "";
+                                                    processlabel.Text = "Mounting IceWeasel:";
                                                 }
                                                 else
                                                 {
@@ -243,7 +245,7 @@ namespace openweasel
                                                         {
                                                             if (progressBar1.Value == 90)
                                                             {
-                                                                processlabel.Text = "";
+                                                                processlabel.Text = "Mounting IceWeasel:";
                                                           
                                                             }
                                                             else
