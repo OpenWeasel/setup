@@ -27,7 +27,7 @@ namespace openweasel
         {
 
         }
-
+        //cancel button = button2
         private void button2_Click(object sender, EventArgs e)
         {
             backgroundWorker1.CancelAsync();
@@ -36,7 +36,11 @@ namespace openweasel
         // install openweasel and virtualbox check box
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-        
+        if (installowandvb.Checked == true)
+            {
+                extract.Checked = false;
+                loadowintovb.Checked = false;
+            }
         }
 
         private void progressBar1_Click(object sender, EventArgs e)
@@ -56,6 +60,7 @@ namespace openweasel
                 }
                 else
                 {
+                
                     if (installowandvb.Checked == false & loadowintovb.Checked == true & extract.Checked == false)
                     {
                         install.Enabled = true;
@@ -96,7 +101,16 @@ namespace openweasel
                 }
                 else
                 {
-                    
+                    if (switchnum == 3)
+                    {
+                        //extract virtualbox file (ova)
+                        //call backgroundWorker3
+                        // extracts IceWeasel Browserova.zip
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
                  
@@ -152,7 +166,7 @@ namespace openweasel
             backgroundWorker1.ReportProgress(100);
 
         }
-
+        // backgroundWorker1 installs both virtualbox and openweasel
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Cancelled)
@@ -268,6 +282,47 @@ namespace openweasel
                         }
                     }
                 }
+            }
+        }
+        // backgroundWorker2 loads openweasel into virtualbox
+        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+        private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        // backgroundWorker3 extracts the virtualbox ova file
+        private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+        private void backgroundWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+        // loadowintovb check box
+        private void loadowintovb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (loadowintovb.Checked == true)
+            {
+                installowandvb.Checked = false;
+                extract.Checked = false;
+            }
+            else
+            {
+
+            }
+        }
+        // extract ova checkbox change event
+        private void extract_CheckedChanged(object sender, EventArgs e)
+        {
+            if (extract.Checked == true)
+            {
+                loadowintovb.Checked = false;
+                installowandvb.Checked = false;
             }
         }
     }
