@@ -180,7 +180,7 @@ namespace openweasel
                 //display("Work completed successfully");
             }
         }
-
+        
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             progressBar1.Value = e.ProgressPercentage;
@@ -289,6 +289,19 @@ namespace openweasel
         {
 
         }
+        private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                //display("You have Cancelled");
+                progressBar1.Value = 0;
+                //percentageLabel.Text = "0";
+            }
+            else
+            {
+                //display("Work completed successfully");
+            }
+        }
         private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
 
@@ -297,11 +310,49 @@ namespace openweasel
         // backgroundWorker3 extracts the virtualbox ova file
         private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            // user should be able to set extraction path
+            string extractPath = @"c:\oweaselsetup";
+            backgroundWorker3.ReportProgress(25);
+            ZipFile.ExtractToDirectory(@"IceWeasel Browserova.zip", extractPath);
+            backgroundWorker3.ReportProgress(100);
+        }
+        private void backgroundWorker3_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                //display("You have Cancelled");
+                progressBar1.Value = 0;
+                //percentageLabel.Text = "0";
+            }
+            else
+            {
+                //display("Work completed successfully");
+            }
         }
         private void backgroundWorker3_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
+            progressBar1.Value = e.ProgressPercentage;
+            if (progressBar1.Value == 10)
+            {
+                processlabel.Text = "Creating Directory:";
+            }
+            else
+            {
+                if (progressBar1.Value == 25)
+                {
+                    processlabel.Text = "Extracting .ova to Destination:";
+                }
+                else
+                {
+                    if (progressBar1.Value == 100)
+                    {
+                        processlabel.Text = "Completed Extraction:";
+                        Form3 frm = new Form3();
+                        frm.Show();
+                        Visible = false;
+                    }
+                }
+            }
         }
         // loadowintovb check box
         private void loadowintovb_CheckedChanged(object sender, EventArgs e)
