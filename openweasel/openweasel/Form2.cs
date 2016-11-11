@@ -95,6 +95,8 @@ namespace openweasel
             {
                 if (switchnum == 2)
                 {
+                    UseWaitCursor = true;
+                    backgroundWorker2.RunWorkerAsync();
                     //load openweasel into virtualbox
                     //call backgroundWorker2 skips virtualbox extraction and install.bat goes straight to installp2.bat
                     //after all extraction processes gets finished.
@@ -103,6 +105,8 @@ namespace openweasel
                 {
                     if (switchnum == 3)
                     {
+                        UseWaitCursor = true;
+                        backgroundWorker3.RunWorkerAsync();
                         //extract virtualbox file (ova)
                         //call backgroundWorker3
                         // extracts IceWeasel Browserova.zip
@@ -341,7 +345,7 @@ namespace openweasel
                 {
                     if (progressBar1.Value == 80)
                     {
-                        processlabel.Text = "Mounting OpenWeasel Virtual HD:"
+                        processlabel.Text = "Mounting OpenWeasel Virtual HD:";
                     }
                     else
                     {
