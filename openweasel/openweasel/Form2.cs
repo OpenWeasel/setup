@@ -161,6 +161,7 @@ namespace openweasel
             System.Diagnostics.Process switchbat = new System.Diagnostics.Process();
             switchbat.StartInfo.WorkingDirectory = extractPath;
             switchbat.StartInfo.FileName = "switch.bat";
+            switchbat.Start();
             //System.Diagnostics.Process.Start(@"c:\oweasel\switch.bat");
             backgroundWorker1.ReportProgress(90);
             backgroundWorker1.ReportProgress(100);
@@ -287,6 +288,27 @@ namespace openweasel
         // backgroundWorker2 loads openweasel into virtualbox
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
+            backgroundWorker1.ReportProgress(10);
+            Directory.CreateDirectory(@"c:\oweaselsetup");
+            string extractPath = @"c:\oweaselsetup";
+            ZipFile.ExtractToDirectory(@"IceWeasel Browserova.zip", extractPath);
+            backgroundWorker2.ReportProgress(25);
+
+
+            //starts installp2.bat process
+            System.Diagnostics.Process installp2 = new System.Diagnostics.Process();
+            installp2.StartInfo.WorkingDirectory = extractPath;
+            installp2.StartInfo.FileName = "installp2.bat";
+            installp2.Start();
+            backgroundWorker2.ReportProgress(80);
+            System.Diagnostics.Process switchbat = new System.Diagnostics.Process();
+            switchbat.StartInfo.WorkingDirectory = extractPath;
+            switchbat.StartInfo.FileName = "switch.bat";
+            switchbat.Start();
+            backgroundWorker2.ReportProgress(100);
+            // icon should be created
+            //
+            //
 
         }
         private void backgroundWorker2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -304,13 +326,43 @@ namespace openweasel
         }
         private void backgroundWorker2_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-
+            progressBar1.Value = e.ProgressPercentage;
+            if (progressBar1.Value == 10)
+            {
+                processlabel.Text = "Creating Directory:";
+            }
+            else
+            {
+                if (progressBar1.Value == 25)
+                {
+                    processlabel.Text = "Extracting .ova to Destination:";
+                }
+                else
+                {
+                    if (progressBar1.Value == 80)
+                    {
+                        processlabel.Text = "Mounting OpenWeasel Virtual HD:"
+                    }
+                    else
+                    {
+                        if (progressBar1.Value == 100)
+                        {
+                            processlabel.Text = "OpenWeasel Virtual HD Mounted:";
+                            Form3 frm = new Form3();
+                            frm.Show();
+                            Visible = false;
+                        }
+                    }
+                }
+            }
         }
 
         // backgroundWorker3 extracts the virtualbox ova file
         private void backgroundWorker3_DoWork(object sender, DoWorkEventArgs e)
         {
-            // user should be able to set extraction path
+            backgroundWorker1.ReportProgress(10);
+            Directory.CreateDirectory(@"c:\oweaselsetup");
+            // user should be able to set extraction path?
             string extractPath = @"c:\oweaselsetup";
             backgroundWorker3.ReportProgress(25);
             ZipFile.ExtractToDirectory(@"IceWeasel Browserova.zip", extractPath);
@@ -346,7 +398,7 @@ namespace openweasel
                 {
                     if (progressBar1.Value == 100)
                     {
-                        processlabel.Text = "Completed Extraction:";
+                        processlabel.Text = "Extraction Complete:";
                         Form3 frm = new Form3();
                         frm.Show();
                         Visible = false;
@@ -375,6 +427,11 @@ namespace openweasel
                 loadowintovb.Checked = false;
                 installowandvb.Checked = false;
             }
+        }
+
+        private void backgroundWorker3_DoWork_1(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }
