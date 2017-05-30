@@ -16,12 +16,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.IO;
+using System.Management.Automation; // is used with powershell scripting
 
 /* To do list
  * 
  * [] Create hyper-v mounting script
  * 
- */ 
+ */
 
 
 namespace openweasel
