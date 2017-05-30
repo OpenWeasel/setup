@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* @author James Houston
+ * @contributors Taylor Houston, Aaron McVanner
+ * @version 2017.05.30
+ * 
+ * @purpose This program installs the newest version of OpenWeasel sandboxed browser.
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +16,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.IO;
+
+/* To do list
+ * 
+ * [] Create hyper-v mounting script
+ * 
+ */ 
+
 
 namespace openweasel
 {
@@ -40,6 +54,7 @@ namespace openweasel
             {
                 extract.Checked = false;
                 loadowintovb.Checked = false;
+                cbInstallOpenWeaselHyperV.Checked = false;
             }
         }
 
@@ -53,31 +68,44 @@ namespace openweasel
             int switchnum = 0;
             if (switchnum == 0)
             {
-                if (installowandvb.Checked == true & loadowintovb.Checked == false & extract.Checked == false)
+                // installs virtualbox and openweasel switchnum = 1
+                if (installowandvb.Checked == true & loadowintovb.Checked == false & extract.Checked == false & cbInstallOpenWeaselHyperV.Checked == false)
                 {
                     install.Enabled = true;
                     switchnum = 1;
                 }
                 else
                 {
-                
-                    if (installowandvb.Checked == false & loadowintovb.Checked == true & extract.Checked == false)
+                    // loads OW into VirtualBox. switchnum is 2.
+                    if (installowandvb.Checked == false & loadowintovb.Checked == true & extract.Checked == false & cbInstallOpenWeaselHyperV.Checked == false)
                     {
                         install.Enabled = true;
                         switchnum = 2;
                     }
                     else
                     {
-                        if (installowandvb.Checked == false & loadowintovb.Checked == false & extract.Checked == true)
+                        // extracts OW vhd. switchnum is 3
+                        if (installowandvb.Checked == false & loadowintovb.Checked == false & extract.Checked == true & cbInstallOpenWeaselHyperV.Checked == false)
                         {
                             install.Enabled = true;
                             switchnum = 3;
                         }
                         else
                         {
-                            Form2 frm = new Form2();
-                            frm.Show();
-                            Visible = false;
+                            // installs OW into hyper-v. switchnum is 4
+                            if (installowandvb.Checked == false & loadowintovb.Checked == false & extract.Checked == false & cbInstallOpenWeaselHyperV.Checked == true)
+                            {
+                                install.Enabled = true;
+                                switchnum = 4;
+                            }
+
+                            else
+                            {
+                                Form2 frm = new Form2();
+                                frm.Show();
+                                Visible = false;
+                            }
+
                         }
                     }
                 }
@@ -417,6 +445,7 @@ namespace openweasel
             {
                 installowandvb.Checked = false;
                 extract.Checked = false;
+                cbInstallOpenWeaselHyperV.Checked = false;
             }
             else
             {
@@ -430,12 +459,28 @@ namespace openweasel
             {
                 loadowintovb.Checked = false;
                 installowandvb.Checked = false;
+                cbInstallOpenWeaselHyperV.Checked = false;
             }
         }
+
+
 
         private void backgroundWorker3_DoWork_1(object sender, DoWorkEventArgs e)
         {
 
         }
+
+        // cbInstallOpenWeaselHyperV changed event when checked.
+        private void cbInstallOpenWeaselHyperV_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbInstallOpenWeaselHyperV.Checked == true)
+            {
+
+                loadowintovb.Checked = false;
+                installowandvb.Checked = false;
+                extract.Checked = false;
+            }
+       }
+   
     }
 }

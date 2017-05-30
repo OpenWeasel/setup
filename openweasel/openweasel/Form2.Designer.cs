@@ -40,6 +40,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
+            this.cbInstallOpenWeaselHyperV = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.installowandvb.AutoSize = true;
             this.installowandvb.Checked = true;
             this.installowandvb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.installowandvb.Location = new System.Drawing.Point(323, 372);
+            this.installowandvb.Location = new System.Drawing.Point(323, 319);
             this.installowandvb.Margin = new System.Windows.Forms.Padding(4);
             this.installowandvb.Name = "installowandvb";
             this.installowandvb.Size = new System.Drawing.Size(293, 21);
@@ -94,7 +95,7 @@
             // loadowintovb
             // 
             this.loadowintovb.AutoSize = true;
-            this.loadowintovb.Location = new System.Drawing.Point(323, 336);
+            this.loadowintovb.Location = new System.Drawing.Point(323, 290);
             this.loadowintovb.Margin = new System.Windows.Forms.Padding(4);
             this.loadowintovb.Name = "loadowintovb";
             this.loadowintovb.Size = new System.Drawing.Size(288, 21);
@@ -106,7 +107,7 @@
             // extract
             // 
             this.extract.AutoSize = true;
-            this.extract.Location = new System.Drawing.Point(323, 299);
+            this.extract.Location = new System.Drawing.Point(323, 261);
             this.extract.Margin = new System.Windows.Forms.Padding(4);
             this.extract.Name = "extract";
             this.extract.Size = new System.Drawing.Size(211, 21);
@@ -152,11 +153,23 @@
             this.backgroundWorker3.WorkerSupportsCancellation = true;
             this.backgroundWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork_1);
             // 
+            // cbInstallOpenWeaselHyperV
+            // 
+            this.cbInstallOpenWeaselHyperV.AutoSize = true;
+            this.cbInstallOpenWeaselHyperV.Location = new System.Drawing.Point(323, 347);
+            this.cbInstallOpenWeaselHyperV.Name = "cbInstallOpenWeaselHyperV";
+            this.cbInstallOpenWeaselHyperV.Size = new System.Drawing.Size(235, 21);
+            this.cbInstallOpenWeaselHyperV.TabIndex = 8;
+            this.cbInstallOpenWeaselHyperV.Text = "Install OpenWeasel into Hyper-V";
+            this.cbInstallOpenWeaselHyperV.UseVisualStyleBackColor = true;
+            this.cbInstallOpenWeaselHyperV.CheckedChanged += new System.EventHandler(this.cbInstallOpenWeaselHyperV_CheckedChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 465);
+            this.Controls.Add(this.cbInstallOpenWeaselHyperV);
             this.Controls.Add(this.processlabel);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.extract);
@@ -192,5 +205,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
+        private System.Windows.Forms.CheckBox cbInstallOpenWeaselHyperV;
     }
 }

@@ -53,7 +53,7 @@
     <ApplicationIcon>iceweasel.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>475E9674F89396DF0F8B2535A52AAF8D480BCEDF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>264B51682934459C328BE8F389AC095D74B4EDC8</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>openweasel_TemporaryKey.pfx</ManifestKeyFile>
