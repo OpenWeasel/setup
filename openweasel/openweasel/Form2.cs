@@ -142,7 +142,14 @@ namespace openweasel
                     }
                     else
                     {
-
+                        if (switchnum == 4)
+                        {
+                            UseWaitCursor = true;
+                            backgroundWorker4.RunWorkerAsync();
+                            // downloads / extracts the vhd
+                            // calls backgroundWorker4 which installs it into Hyper-V
+                            // creates shortcut for HyperWeasel
+                        }
                     }
                 }
             }
@@ -476,6 +483,32 @@ namespace openweasel
                 extract.Checked = false;
             }
        }
-   
+
+
+
+        /*
+         * backgroundWorker4 is incharge of the background work that the install OpenWeasel into Hyper-V will run
+         * 
+         * [] creates desktop shortcut
+         * [] create virtual external switch called ice
+         * [] import-vm hyperweasel
+         * 
+         */ 
+        private void backgroundWorker4_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker4_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker4_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+
     }
 }

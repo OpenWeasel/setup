@@ -41,6 +41,7 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
             this.cbInstallOpenWeaselHyperV = new System.Windows.Forms.CheckBox();
+            this.backgroundWorker4 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,12 +147,16 @@
             this.backgroundWorker2.WorkerReportsProgress = true;
             this.backgroundWorker2.WorkerSupportsCancellation = true;
             this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
+            this.backgroundWorker2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker2_ProgressChanged);
+            this.backgroundWorker2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker2_RunWorkerCompleted);
             // 
             // backgroundWorker3
             // 
             this.backgroundWorker3.WorkerReportsProgress = true;
             this.backgroundWorker3.WorkerSupportsCancellation = true;
             this.backgroundWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork);
+            this.backgroundWorker3.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker3_ProgressChanged);
+            this.backgroundWorker3.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker3_RunWorkerCompleted);
             // 
             // cbInstallOpenWeaselHyperV
             // 
@@ -163,6 +168,14 @@
             this.cbInstallOpenWeaselHyperV.Text = "Install OpenWeasel into Hyper-V";
             this.cbInstallOpenWeaselHyperV.UseVisualStyleBackColor = true;
             this.cbInstallOpenWeaselHyperV.CheckedChanged += new System.EventHandler(this.cbInstallOpenWeaselHyperV_CheckedChanged);
+            // 
+            // backgroundWorker4
+            // 
+            this.backgroundWorker4.WorkerReportsProgress = true;
+            this.backgroundWorker4.WorkerSupportsCancellation = true;
+            this.backgroundWorker4.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker4_DoWork);
+            this.backgroundWorker4.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker4_ProgressChanged);
+            this.backgroundWorker4.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker4_RunWorkerCompleted);
             // 
             // Form2
             // 
@@ -206,5 +219,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
         private System.Windows.Forms.CheckBox cbInstallOpenWeaselHyperV;
+        private System.ComponentModel.BackgroundWorker backgroundWorker4;
     }
 }
