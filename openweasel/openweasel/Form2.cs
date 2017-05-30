@@ -464,12 +464,6 @@ namespace openweasel
         }
 
 
-
-        private void backgroundWorker3_DoWork_1(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
         // cbInstallOpenWeaselHyperV changed event when checked.
         private void cbInstallOpenWeaselHyperV_CheckedChanged(object sender, EventArgs e)
         {

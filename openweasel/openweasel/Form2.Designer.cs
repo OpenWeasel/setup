@@ -151,7 +151,7 @@
             // 
             this.backgroundWorker3.WorkerReportsProgress = true;
             this.backgroundWorker3.WorkerSupportsCancellation = true;
-            this.backgroundWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork_1);
+            this.backgroundWorker3.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker3_DoWork);
             // 
             // cbInstallOpenWeaselHyperV
             // 
