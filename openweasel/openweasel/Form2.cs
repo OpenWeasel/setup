@@ -497,6 +497,13 @@ namespace openweasel
         private void backgroundWorker4_DoWork(object sender, DoWorkEventArgs e)
         {
 
+            using (PowerShell PowerShellInstance = PowerShell.Create())
+            {
+                PowerShellInstance.AddScript("$vmFile=(Get-ChildItem 'C:\\Program Files\\OpenWeasel\\HyperWeasel\\Virtual Machines' -name *vmcx)");
+                PowerShellInstance.AddScript("$net = Get-NetAdapter -Name 'Ethernet'");
+                PowerShellInstance.AddScript("New-VMSwitch -Name 'IceweaselNetworkAdaptor' -AllowManagementOS $True -NetAdapterName $net.Name");
+                PowerShellInstance.AddScript("Import-VM -Path 'C:\\Program Files\\OpenWeasel\\HyperWeasel\\Virtual Machines\\$vmFile'");
+            }
         }
 
         private void backgroundWorker4_ProgressChanged(object sender, ProgressChangedEventArgs e)
