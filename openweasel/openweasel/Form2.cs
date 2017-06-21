@@ -490,19 +490,31 @@ namespace openweasel
          * backgroundWorker4 is incharge of the background work that the install OpenWeasel into Hyper-V will run
          * 
          * [] creates desktop shortcut
-         * [] create virtual external switch called ice
+         * [] create virtual external switch called IceweaselNetworkAdapter
          * [] import-vm hyperweasel
          * 
          */ 
         private void backgroundWorker4_DoWork(object sender, DoWorkEventArgs e)
         {
-
+            string extractPath = @"C:\Program Files\OpenWeasel\";
+            //string tempPath = Path.GetTempPath();
+            //string hyperWeaselTempPath = tempPath + "HyperWeasel.zip";
+            Directory.CreateDirectory(@"C:\Program Files\OpenWeasel\");
+            
             using (PowerShell PowerShellInstance = PowerShell.Create())
             {
-                PowerShellInstance.AddScript("$vmFile=(Get-ChildItem 'C:\\Program Files\\OpenWeasel\\HyperWeasel\\Virtual Machines' -name *vmcx)");
+                //PowerShellInstance.AddScript(@"Copy-Item -Path '\\192.168.16.85\Kok_Programs\IceWeasel Internet Browser\HyperWeasel2017warlord\HyperWeasel\HyperWeasel.zip' -Destination '$ENV:TMP'");
+                //ZipFile.ExtractToDirectory(hyperWeaselTempPath, extractPath);
+                ZipFile.ExtractToDirectory(@"HyperWeasel.zip", extractPath);
+                PowerShellInstance.AddScript(@"$vmFile=(Get-ChildItem 'C:\Program Files\OpenWeasel\HyperWeasel\Virtual Machines' -name *vmcx); New-VMSwitch -Name 'IceweaselNetworkAdaptor' -AllowManagementOS $True -NetAdapterName $net.Name; Import-VM -Path 'C:\Program Files\OpenWeasel\HyperWeasel\Virtual Machines\$vmFile'; $DesktopPath = [Environment]::GetFolderPath('Desktop'); Copy-Item -Path 'C:\Program Files\OpenWeasel\HyperWeasel\HyperWeasel.lnk' -Destination $DesktopPath");
+                /* uncomment after test
+                 * don't need these anymore combined them to  one script for flow control
                 PowerShellInstance.AddScript("$net = Get-NetAdapter -Name 'Ethernet'");
                 PowerShellInstance.AddScript("New-VMSwitch -Name 'IceweaselNetworkAdaptor' -AllowManagementOS $True -NetAdapterName $net.Name");
-                PowerShellInstance.AddScript("Import-VM -Path 'C:\\Program Files\\OpenWeasel\\HyperWeasel\\Virtual Machines\\$vmFile'");
+                PowerShellInstance.AddScript(@"Import-VM -Path 'C:\Program Files\OpenWeasel\HyperWeasel\Virtual Machines\$vmFile'");
+                PowerShellInstance.AddScript(@"$DesktopPath = [Environment]::GetFolderPath('Desktop')");
+                PowerShellInstance.AddScript(@"Copy-Item -Path 'C:\Program Files\OpenWeasel\HyperWeasel\HyperWeasel.lnk' -Destination $DesktopPath");
+                */
             }
         }
 
